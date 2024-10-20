@@ -10,4 +10,4 @@ task-mate-firebase-ios.plist
 
 .env
 
-bin/Debug/net8.0/appsettings.json
+bin
