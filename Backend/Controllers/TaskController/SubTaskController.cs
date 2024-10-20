@@ -166,5 +166,48 @@ namespace Backend.Controllers.TaskController
 
 			return NoContent();
 		}
+		
+		// Mark subtask as complete
+		[HttpPut("complete/{subTaskId}")]
+		
+		public async Task<IActionResult> CompleteSubTask(int subTaskId) 
+		{
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			if(string.IsNullOrEmpty(userId)) 
+			{
+				return Unauthorized("User must be logged in");
+			}
+
+			var subTask = await context.SubTasks.FindAsync(subTaskId);
+			if(subTask == null) 
+			{
+				return NotFound();
+			}
+			
+			subTask.SubtaskIsCompleted = true;
+			await context.SaveChangesAsync();
+			return Ok(subTask);
+		}
+		
+		// Mark subtask as in-complete
+		[HttpPut("in-complete/{subTaskId}")]
+		public async Task<IActionResult> InCompleteSubTask(int subTaskId) 
+		{
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			if(string.IsNullOrEmpty(userId)) 
+			{
+				return Unauthorized("User must be logged in");
+			}
+
+			var subTask = await context.SubTasks.FindAsync(subTaskId);
+			if(subTask == null) 
+			{
+				return NotFound();
+			}
+			
+			subTask.SubtaskIsCompleted = false;
+			await context.SaveChangesAsync();
+			return Ok(subTask);
+		}
 	}
 }

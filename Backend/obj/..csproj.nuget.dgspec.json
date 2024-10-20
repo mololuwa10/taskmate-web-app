@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\molol\\Documents\\Projects\\ToDoListWeb\\to-do-list-web-app\\Backend\\..csproj": {}
+    "C:\\Users\\segil\\OneDrive\\Documents\\Projects\\taskmate-web-app\\Backend\\..csproj": {}
   },
   "projects": {
-    "C:\\Users\\molol\\Documents\\Projects\\ToDoListWeb\\to-do-list-web-app\\Backend\\..csproj": {
+    "C:\\Users\\segil\\OneDrive\\Documents\\Projects\\taskmate-web-app\\Backend\\..csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\molol\\Documents\\Projects\\ToDoListWeb\\to-do-list-web-app\\Backend\\..csproj",
+        "projectUniqueName": "C:\\Users\\segil\\OneDrive\\Documents\\Projects\\taskmate-web-app\\Backend\\..csproj",
         "projectName": ".",
-        "projectPath": "C:\\Users\\molol\\Documents\\Projects\\ToDoListWeb\\to-do-list-web-app\\Backend\\..csproj",
-        "packagesPath": "C:\\Users\\molol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\molol\\Documents\\Projects\\ToDoListWeb\\to-do-list-web-app\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\segil\\OneDrive\\Documents\\Projects\\taskmate-web-app\\Backend\\..csproj",
+        "packagesPath": "C:\\Users\\segil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\segil\\OneDrive\\Documents\\Projects\\taskmate-web-app\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\molol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\segil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -74,7 +74,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -82,7 +82,7 @@
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.10, )"
             }
           },
           "imports": [
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
