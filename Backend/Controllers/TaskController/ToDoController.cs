@@ -172,13 +172,13 @@ namespace Backend.Controllers.TaskController
 			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 			int? categoryId = createToDoItemsDTO?.CategoryId;
 
-			if (
-				createToDoItemsDTO?.DueDate.HasValue == true
-				&& createToDoItemsDTO.DueDate.Value.Date < DateTime.UtcNow.Date
-			)
-			{
-				return BadRequest("Please Choose a due date that is later than today");
-			}
+			// if (
+			// 	createToDoItemsDTO?.DueDate.HasValue == true
+			// 	&& createToDoItemsDTO.DueDate.Value.Date < DateTime.UtcNow.Date
+			// )
+			// {
+			// 	return BadRequest("Please Choose a due date that is later than today");
+			// }
 
 			if (categoryId == null && !string.IsNullOrEmpty(createToDoItemsDTO?.CategoryName))
 			{
@@ -213,12 +213,12 @@ namespace Backend.Controllers.TaskController
 			{
 				TaskName = createToDoItemsDTO?.TaskName,
 				TaskDescription = createToDoItemsDTO?.TaskDescription,
+				DateCreated = createToDoItemsDTO?.DateCreated ?? DateTime.UtcNow,
 				DueDate = createToDoItemsDTO?.DueDate,
 				Priority = createToDoItemsDTO?.Priority,
 				IsCompleted = false,
 				UserId = userId,
 				CategoryId = categoryId,
-				DateCreated = DateTime.UtcNow,
 			};
 
 			context.ToDoItems.Add(item);
@@ -315,7 +315,7 @@ namespace Backend.Controllers.TaskController
 		public async Task<IActionResult> UpdateToDoItem(int id, [FromForm] string ToDoItem)
 		{
 			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-			var createToDoItemsDTO = JsonConvert.DeserializeObject<UpdateToDoItemDTO>(ToDoItem);
+			var updateToDoItemDTO = JsonConvert.DeserializeObject<UpdateToDoItemDTO>(ToDoItem);
 
 			var toDoItem = await context.ToDoItems.FirstOrDefaultAsync(t =>
 				t.TaskId == id && t.UserId == userId
@@ -327,12 +327,13 @@ namespace Backend.Controllers.TaskController
 			}
 
 			// Update main task properties
-			toDoItem.TaskName = createToDoItemsDTO?.TaskName;
-			toDoItem.TaskDescription = createToDoItemsDTO?.TaskDescription;
-			toDoItem.DueDate = createToDoItemsDTO?.DueDate;
-			toDoItem.Priority = createToDoItemsDTO?.Priority;
-			toDoItem.IsCompleted = createToDoItemsDTO?.IsCompleted ?? toDoItem.IsCompleted;
-			toDoItem.CategoryId = createToDoItemsDTO?.CategoryId;
+			toDoItem.TaskName = updateToDoItemDTO?.TaskName;
+			toDoItem.TaskDescription = updateToDoItemDTO?.TaskDescription;
+			toDoItem.DateCreated = updateToDoItemDTO?.DateCreated ?? toDoItem.DateCreated;
+			toDoItem.DueDate = updateToDoItemDTO?.DueDate;
+			toDoItem.Priority = updateToDoItemDTO?.Priority;
+			toDoItem.IsCompleted = updateToDoItemDTO?.IsCompleted ?? toDoItem.IsCompleted;
+			toDoItem.CategoryId = updateToDoItemDTO?.CategoryId;
 
 			// Update task in the database
 			context.Entry(toDoItem).State = EntityState.Modified;

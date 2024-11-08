@@ -18,8 +18,8 @@ namespace Backend.Models.Task
 		
 		public string? TaskDescription { get; set; }
 
-		public DateTime DateCreated { get; set; } = DateTime.UtcNow;
-		
+		public DateTime DateCreated { get; set; }
+		// = DateTime.UtcNow;
 		public DateTime? DueDate { get; set; }
 		
 		public string? Priority { get; set; } // e.g., Low, Medium, High
