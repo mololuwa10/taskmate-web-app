@@ -88,11 +88,12 @@ export default function Header() {
                         </button>
 
                         <a href="/">
-                            <img
+                            Task Mate
+                            {/* <img
                                 className="w-auto h-6 sm:h-7"
                                 src="https://merakiui.com/images/full-logo.svg"
                                 alt=""
-                            />
+                            /> */}
                         </a>
                     </div>
 
