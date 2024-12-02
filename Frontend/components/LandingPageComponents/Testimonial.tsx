@@ -213,9 +213,9 @@ export default function Testimonial() {
                             <blockquote
                                 key={index}
                                 className="flex h-full flex-col justify-between bg-white p-6 shadow-xl sm:p-8"
-                                ref={(el) =>
-                                    (testimonialRefs.current[index] = el!)
-                                }
+                                ref={(el) => {
+                                    testimonialRefs.current[index] = el!;
+                                }}
                             >
                                 <div>
                                     <div className="flex gap-0.5 text-green-500">
